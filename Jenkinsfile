@@ -17,14 +17,9 @@ pipeline {
             steps {
                 bat "mvn -Dtest=${params.tests} test -Durl=${params.url} -Dbrowser=${params.browser} -Dsleep=${params.sleep}"
             }
-        }
-
-        stage('Generating Report') {
-            steps {
-                bat "mvn cluecumber-report:reporting"
-            }
             post {
                 always {
+                    bat "mvn cluecumber-report:reporting"
                     publishHTML([
                             allowMissing         : false,
                             alwaysLinkToLastBuild: false,
