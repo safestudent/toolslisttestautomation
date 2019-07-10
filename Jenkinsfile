@@ -15,7 +15,7 @@ pipeline {
 
         stage('BDD Requirements Testing') {
             steps {
-                bat "mvn clean -Dtest=${params.tests} test -Durl=${params.url} -Dbrowser=${params.browser} -Dsleep=${params.sleep}"
+                bat "mvn -Dtest=${params.tests} clean test -Durl=${params.url} -Dbrowser=${params.browser} -Dsleep=${params.sleep}"
             }
         }
 
