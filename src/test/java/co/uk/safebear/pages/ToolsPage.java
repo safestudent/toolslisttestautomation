@@ -1,6 +1,7 @@
 package co.uk.safebear.pages;
 
 import co.uk.safebear.pages.locators.ToolsPageLocators;
+import co.uk.safebear.utils.Waits;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.openqa.selenium.WebDriver;
@@ -21,7 +22,7 @@ public class ToolsPage {
 
     public String checkForLoginSuccessfulMessage()
     {
-        return driver.findElement(locators.getSuccessfulLoginMessage()).getText();
+        return Waits.waitForElement(locators.getSuccessfulLoginMessage(), driver).getText();
     }
 
 }
